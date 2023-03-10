@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/admin.css">
+
+    <title>Kenzie Empresas | Admin</title>
+
+</head>
+<body>
+    <nav class="headerAdmin">
+        <div>
+            <div></div>
+            <img src="/src/assets/image/KenzieEmpresas.svg" alt="">
+        </div>
+        <button class="logoutButton">Logout</button>
+    </nav>
+    <main>
+        <div class="departamentTitle">
+            <h2>Departamentos</h2>
+            <select name="selectAdmin" id="selectAdmin">
+                <option value="selecionarAdmin">Selecionar Empresa</option>
+            </select>
+            <button><img src="/src/assets/icons/plusVector.svg" alt="">Criar</button>
+        </div>
+        <section class="departamentBox">
+            <!-- <div class="departamentCard">
+                <h3>Departament One</h3>
+                <p>Departament Description One</p>
+                <span>Company Name One</span>
+                <div class="buttonsFooter">
+                    <button class="viewBtn"><img src="/src/assets/icons/viewVector.svg" alt=""></button>
+                    <button class="editBtn"><img src="/src/assets/icons/editVector.svg" alt=""></button>
+                    <button class="deleteBtn"><img src="/src/assets/icons/deleteVector.svg" alt=""></button>
+                </div>
+            </div> -->
+        </section>
+        <div class="userTitle">
+            <h2>Usuários Cadastrados</h2>
+        </div>
+        <section class="userBox">
+            <!-- <div class="userCard">
+                <h3>Username One</h3>
+                <p>Pleno</p>
+                <span>Company Name</span>
+                <div class="userButtonsFooter">
+                    <button class="userEditBtn"><img src="/src/assets/icons/coloredEdit.svg" alt=""></button>
+                    <button class="userDeleteBtn"><img src="/src/assets/icons/deleteVector.svg" alt=""></button>
+                </div>
+            </div> -->
+        </section>
+        <dialog class="userEditModal"></dialog>
+        <dialog class="userDeleteModal"></dialog>
+        <dialog class="departViewModal"></dialog>
+        <dialog class="departEditModal"></dialog>
+        <dialog class="departDeleteModal"></dialog>
+        <dialog class="departCreateModal"></dialog>
+    </main>
+    <script type="module" src="/src/scripts/admin.js"></script>
+</body>
+</html>

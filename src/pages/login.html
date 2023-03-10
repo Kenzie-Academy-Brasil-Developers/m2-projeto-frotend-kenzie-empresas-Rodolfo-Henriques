@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/login.css">
+
+    <title>Kenzie Empresas | Login</title>
+
+</head>
+<body>
+    <nav class="headerLogin">
+        <div>
+            <div></div>
+            <img src="/src/assets/image/KenzieEmpresas.svg" alt="">
+        </div>
+        <a href="" class="openMenuBtn"><img class="buttonImg" src="/src/assets/icons/menuVector.svg" alt=""></a>
+    </nav>
+    <ul class="menuDown">
+        <li>
+            <a href="/index.html">Home</a>
+        </li>
+        <li>
+            <a href="/src/pages/register.html">Cadastro</a>
+        </li>
+    </ul>
+    <main>
+        <form action="">
+            <h1>Login</h1>
+            <p>Preencha os campos para realizar Login</p>
+            <div class="inputContainer">
+                <input class="loginInput" type="text" name="email" id="email" placeholder="Seu e-mail">
+                <input class="loginInput" type="password" name="password" id="password" placeholder="Sua senha">
+            </div>
+            <button type="submit" class="loginBtn">Login</button>
+            <span>Ou</span>
+            <button type="button" class="registerBtn" onclick="window.location.href = '/src/pages/register.html'">Cadastre-se</button>
+        </form>
+    </main>
+    <script type="module" src="/src/scripts/login.js"></script>
+</body>
+</html>
