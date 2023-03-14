@@ -70,6 +70,10 @@ body{
     text-decoration: none;
 }
 
+.menuShow > li > a:hover{
+    color: white;
+}
+
 main{
     display: flex;
     width: 100%;

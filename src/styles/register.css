@@ -1,4 +1,4 @@
-.headerLogin{
+.headerRegister{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -12,7 +12,7 @@
 
 }
 
-.headerLogin > div{
+.headerRegister > div{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -22,7 +22,7 @@
     gap: 0.655rem;
 }
 
-.headerLogin > div > div {
+.headerRegister > div > div {
     border-radius: 100%;
     background-color: var(--primary-color-1);
     opacity: 50%;
@@ -64,10 +64,6 @@
 
 .menuShow > li > a{
     text-decoration: none;
-}
-
-.menuShow > li > a:hover{
-    color: white;
 }
 
 main{
@@ -123,6 +119,17 @@ main > form > span{
     width: 100%;
 }
 
+.inputContainer > select{
+    font-weight: 400;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.50);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    outline: none;
+
+    padding: 1rem 1rem;
+}
+
+
 .inputContainer > input{
     padding: 1rem 1.25rem;
     
@@ -137,7 +144,7 @@ main > form > input::placeholder{
     color: rgba(0, 0, 0, 0.50);
 }
 
-.loginBtn, .registerBtn{
+.returnBtn, .registerBtn{
     width: 100%;
     background-color: var(--white-fixed);
     color: var(--primary-color-1);
@@ -151,13 +158,13 @@ main > form > input::placeholder{
     font-family: 'Roboto', sans-serif;
 }
 
-.loginBtn:hover, .registerBtn:hover{
+.returnBtn:hover, .registerBtn:hover{
     background-color: var(--primary-color-1);
     color: var(--white-fixed);
 }
 
 @media(min-width: 900px){
-    .headerLogin{
+    .headerRegister{
         position: relative;
         padding: 1.875rem 8.75rem;
     }

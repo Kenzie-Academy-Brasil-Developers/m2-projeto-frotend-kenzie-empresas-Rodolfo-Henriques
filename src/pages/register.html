@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/register.css">
+
+    <title>Kenzie Empresas | Registrar-se</title>
+
+</head>
+<body>
+    <nav class="headerRegister">
+        <div>
+            <div></div>
+            <img src="/src/assets/image/KenzieEmpresas.svg" alt="">
+        </div>
+        <a href="" class="openMenuBtn"><img class="buttonImg" src="/src/assets/icons/menuVector.svg" alt=""></a>
+    </nav>
+    <ul class="menuDown">
+        <li>
+            <a href="/index.html">Home</a>
+        </li>
+        <li>
+            <a href="/src/pages/login.html">Login</a>
+        </li>
+    </ul>
+    <main>
+        <form action="">
+            <h1>Cadastre-se</h1>
+            <div class="inputContainer">
+                <input class="registerInput" type="text" name="username" id="username" placeholder="Seu nome">
+                <input class="registerInput" type="text" name="email" id="email" placeholder="Seu e-mail">
+                <input class="registerInput" type="password" name="password" id="password" placeholder="Sua senha">
+                <select class="registerInput" name="professional_level">
+                    <option value="">Nível Profissional</option>
+                    <option value="júnior">Júnior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="sênior">Sênior</option>
+                </select>
+            </div>
+            <button type="submit" class="registerBtn">Cadastre-se</button>
+            <button type="button" class="returnBtn" onclick="history.back()">Retornar</button>
+        </form>
+    </main>
+    <script type="module" src="/src/scripts/register.js"></script>
+</body>
+</html>

@@ -8,6 +8,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/src/styles/reset.css">
     <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/adminModal.css">
     <link rel="stylesheet" href="/src/styles/admin.css">
 
     <title>Kenzie Empresas | Admin</title>
@@ -24,36 +25,19 @@
     <main>
         <div class="departamentTitle">
             <h2>Departamentos</h2>
-            <select name="selectAdmin" id="selectAdmin">
-                <option value="selecionarAdmin">Selecionar Empresa</option>
+            <select class="selectCompany" name="selectCompany" id="selectAdmin">
+                <option value="">Selecionar Empresa</option>
             </select>
-            <button><img src="/src/assets/icons/plusVector.svg" alt="">Criar</button>
+            <button class="createDepartment"><img src="/src/assets/icons/plusVector.svg" alt="">Criar</button>
         </div>
         <section class="departamentBox">
-            <!-- <div class="departamentCard">
-                <h3>Departament One</h3>
-                <p>Departament Description One</p>
-                <span>Company Name One</span>
-                <div class="buttonsFooter">
-                    <button class="viewBtn"><img src="/src/assets/icons/viewVector.svg" alt=""></button>
-                    <button class="editBtn"><img src="/src/assets/icons/editVector.svg" alt=""></button>
-                    <button class="deleteBtn"><img src="/src/assets/icons/deleteVector.svg" alt=""></button>
-                </div>
-            </div> -->
+
         </section>
         <div class="userTitle">
             <h2>Usuários Cadastrados</h2>
         </div>
         <section class="userBox">
-            <!-- <div class="userCard">
-                <h3>Username One</h3>
-                <p>Pleno</p>
-                <span>Company Name</span>
-                <div class="userButtonsFooter">
-                    <button class="userEditBtn"><img src="/src/assets/icons/coloredEdit.svg" alt=""></button>
-                    <button class="userDeleteBtn"><img src="/src/assets/icons/deleteVector.svg" alt=""></button>
-                </div>
-            </div> -->
+           
         </section>
         <dialog class="userEditModal"></dialog>
         <dialog class="userDeleteModal"></dialog>

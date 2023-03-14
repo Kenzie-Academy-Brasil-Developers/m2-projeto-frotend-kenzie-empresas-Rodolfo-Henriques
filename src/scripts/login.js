@@ -1,4 +1,5 @@
-import { loginRequest } from "./request.js";
+import { loginRequest, validateUser, getToken } from "./request.js";
+
 
 function openDownMenu(){
     let change = false;
@@ -38,9 +39,7 @@ function handleLogin(){
         if(count != 0){
             return alert("Por favor preencha os campos e tente novamente")
         } else {
-            const token = await loginRequest(loginBody)
-            window.location.replace("/src/pages/admin.html")
-            return token
+            loginRequest(loginBody)
         }
     })
 }
