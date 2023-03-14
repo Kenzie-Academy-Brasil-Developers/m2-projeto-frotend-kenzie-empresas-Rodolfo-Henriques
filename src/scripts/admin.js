@@ -1,10 +1,10 @@
-import { hireWorker, deleteDepartAdmin, updateDepartment, deleteUserAdmin, departmentCreate, getAllCompanies, getAllDepartments, getAllDepartmentsById, getAllUsers, getToken, validateUser, updateUserAdmin, unemployedUsers, fireWorker } from "./request.js";
+import { createCompany, getAllSectors, getCompanyBySector, hireWorker, deleteDepartAdmin, updateDepartment, deleteUserAdmin, departmentCreate, getAllCompanies, getAllDepartments, getAllDepartmentsById, getAllUsers, getToken, validateUser, updateUserAdmin, unemployedUsers, fireWorker } from "./request.js";
 
 const allCompanies = await getAllCompanies();
 const allUsers = await getAllUsers();
+const allSectors = await getAllSectors();
 const departmentsList = await getAllDepartments();
 const unemployedWorkers = await unemployedUsers();
-
 
 function logoutButton(){
     const logout = document.querySelector(".logoutButton");
@@ -332,6 +332,72 @@ function createUpdateUserAdminModal(id){
     return modalContainer
 }
 
+function createNewCompanyModal(){
+    const createBody = {}
+
+    const modalContainer = document.createElement("div")
+    const modalDiv = document.createElement("div")
+    const modalTitle = document.createElement("h2")
+    const closeModalButton = document.createElement("button")
+    const companyName = document.createElement("input")
+    const companyDescription = document.createElement("input")
+    const sectorSelect = document.createElement("select")
+    const sectorSelectOption = document.createElement("option")
+    const createButton = document.createElement("button")
+
+    modalContainer.classList.add("modalBoxContainer")
+    modalDiv.classList.add("modalBox")
+    modalTitle.innerText = "Criar Nova Empresa"
+    closeModalButton.classList.add("closeButton")
+    closeModalButton.innerText = "X"
+    companyName.classList.add("modalInput")
+    companyName.name = "name"
+    companyName.placeholder = "Nome da empresa"
+
+    companyDescription.classList.add("modalInput")
+    companyDescription.name = "description"
+    companyDescription.placeholder = "Descrição"
+
+    sectorSelect.classList.add("modalInput")
+    sectorSelectOption.value = ""
+    sectorSelectOption.innerText = "Selecionar setor"
+
+    sectorSelect.append(sectorSelectOption)
+
+    allSectors.forEach(sector => {
+        const option = document.createElement("option")
+
+        option.innerText = `${sector.description}`
+        option.value = `${sector.uuid}`
+
+        sectorSelect.appendChild(option)
+    })
+
+    createButton.classList.add("createButton")
+    createButton.innerText = "Criar a empresa"
+
+    createButton.addEventListener("click", async (e) => {
+        e.preventDefault()
+        const inputs = document.querySelectorAll(".modalInput")
+        inputs.forEach(({name, value}) => {
+            if(!name){
+                createBody["sector_uuid"] = value
+                createBody["opening_hours"] = "09:00"
+            } else {
+                createBody[name] = value
+            }
+        } )
+        
+        createCompany(createBody)
+        window.location.reload()
+    })
+
+    modalContainer.appendChild(modalDiv)
+    modalDiv.append(modalTitle, closeModalButton, companyName, companyDescription, sectorSelect, createButton)
+    
+    return modalContainer
+}
+
 function createDepartmentModal(){
     const createBody = {}
 
@@ -406,6 +472,22 @@ function createDepartmentModal(){
     
     return modalContainer
 }
+
+async function renderCreateCompanyModal(){
+    const createCompanyModal = document.querySelector(".createCompanyModal")
+    const openModalButton = document.querySelector(".createCompany")
+    openModalButton.addEventListener("click", (e) => {
+        e.preventDefault()
+        
+        const openedModal = createNewCompanyModal()
+        createCompanyModal.innerHTML = "";
+        createCompanyModal.appendChild(openedModal);
+
+        createCompanyModal.showModal();
+        closeModal();
+    })
+}
+
 
 async function renderCreateDepartmentModal(){
     const createDepartModal = document.querySelector(".departCreateModal")
@@ -617,7 +699,37 @@ async function renderAllUsers(){
     });
 }
 
+async function renderCompanies(array){
+    const companyBox = document.querySelector(".companyBox");
+    array.forEach(company => {
+        const companyDivCard = document.createElement("div");
+        const companyTitle = document.createElement("h3");
+        const time = document.createElement("p");
+        const sector = document.createElement("span");
+
+        companyDivCard.classList.add("companyCard");
+        companyTitle.innerText = `${company.name}`;
+        time.innerText = `${company.opening_hours}`;
+        sector.innerText = `${company.sectors.description}`;
+
+        companyBox.appendChild(companyDivCard);
+        companyDivCard.append(companyTitle, time, sector);
+    });
+}
+
+async function renderCompanyBySector(){
+    const companyBox = document.querySelector(".companyBox");
+    const select = document.querySelector(".selectCompanySector");
+
+    select.addEventListener("change", async() => {
+        const companies = await getCompanyBySector(select.value)
+        companyBox.innerHTML = "";
+        renderCompanies(companies);
+    })
+}
+
 async function closeModal(){
+    const createCompanyModal = document.querySelector(".createCompanyModal")
     const departViewModal = document.querySelector(".departViewModal")
     const deleteDepartModal = document.querySelector(".departDeleteModal")
     const editDepartmentModal = document.querySelector(".departEditModal")
@@ -627,6 +739,8 @@ async function closeModal(){
     const closeButton = document.querySelector(".closeButton")
 
     closeButton.addEventListener("click", () =>{
+        createCompanyModal.innerHTML = ""
+        createCompanyModal.close();
         departViewModal.innerHTML = ""
         departViewModal.close();
         deleteDepartModal.innerHTML = ""
@@ -647,4 +761,7 @@ logoutButton();
 renderAllDepartments(departmentsList);
 renderDepartmentsById();
 renderAllUsers();
+renderCompanies(allCompanies);
+renderCompanyBySector();
 renderCreateDepartmentModal();
+renderCreateCompanyModal();

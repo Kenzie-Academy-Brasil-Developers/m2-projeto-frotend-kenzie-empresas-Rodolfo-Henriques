@@ -60,7 +60,7 @@ body::-webkit-scrollbar{
     display: none;
 }
 
-.departamentTitle, .userTitle{
+.departamentTitle, .userTitle, .companiesTitle{
     
     width: 75%;
     margin-top: 2.5rem;
@@ -73,19 +73,19 @@ body::-webkit-scrollbar{
     gap: 1rem;
 }
 
-.departamentTitle > h2, .userTitle > h2 {
+.departamentTitle > h2, .userTitle > h2, .companiesTitle > h2 {
     font-weight: 700;
     font-size: 1.25rem;
     color: var(--black-fixed);
 }
 
-.departamentTitle > select{
+.departamentTitle > select, .companiesTitle > select{
     border-radius: 1rem;
     border: black 1px solid;
     padding: 0.25rem 0.5rem;
 }
 
-.departamentTitle > button{
+.departamentTitle > button, .companiesTitle > button{
     background-color: var(--primary-color-1);
     color: var(--white-fixed);
     font-weight: 700;
@@ -98,7 +98,7 @@ body::-webkit-scrollbar{
     gap: 0.5rem
 }
 
-.departamentBox, .userBox{
+.departamentBox, .userBox, .companyBox{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,7 +128,7 @@ body::-webkit-scrollbar{
     text-align: center;
 }
 
-.departamentCard, .userCard{
+.departamentCard, .userCard, .companyCard{
     background-color: var(--white-fixed);
     border-bottom: 1px solid var(--primary-color-1);
     display: flex;
@@ -141,12 +141,12 @@ body::-webkit-scrollbar{
     height: 260px;
 }
 
-.departamentCard > h3, .userCard > h3{
+.departamentCard > h3, .userCard > h3, .companyCard > h3{
     font-weight: 700;
     font-size: 1.25rem;
 }
 
-.departamentCard > p, .departamentCard > span, .userCard > p, .userCard > span{
+.departamentCard > p, .departamentCard > span, .userCard > p, .userCard > span, .companyCard > p, .companyCard > span{
     font-weight: 400;
     font-size: 1.125rem;
 }
@@ -170,7 +170,7 @@ body::-webkit-scrollbar{
     height: 1.875rem;
 }
 
-.userBox{
+.companyBox{
     margin-bottom: 2rem;
 }
 
@@ -183,12 +183,12 @@ body::-webkit-scrollbar{
         padding: 1.875rem 8.75rem;
     }
 
-    .departamentTitle{
+    .departamentTitle, .companiesTitle{
         flex-direction: row;
         margin-top: 5rem;
     }
 
-    .departamentBox, .userBox{
+    .departamentBox, .userBox, .companyBox{
         height: 400px;
         flex-wrap: wrap;
         flex-direction: row;
@@ -200,20 +200,20 @@ body::-webkit-scrollbar{
         overflow-y: auto;
     }
 
-    .departamentBox::-webkit-scrollbar, .userBox::-webkit-scrollbar {
+    .departamentBox::-webkit-scrollbar, .userBox::-webkit-scrollbar, .companyBox::-webkit-scrollbar {
         width: 6px;
     }
 
-    .departamentBox::-webkit-scrollbar-track, .userBox::-webkit-scrollbar-track{
+    .departamentBox::-webkit-scrollbar-track, .userBox::-webkit-scrollbar-track, .companyBox::-webkit-scrollbar-track{
         background: #F8F8F8;
     }
 
-    .departamentBox::-webkit-scrollbar-thumb, .userBox::-webkit-scrollbar-thumb{
+    .departamentBox::-webkit-scrollbar-thumb, .userBox::-webkit-scrollbar-thumb, .companyBox::-webkit-scrollbar-thumb{
         background: var(--primary-color-1);
         border-radius: 6px;
     }
 
-    .departamentCard, .userCard{
+    .departamentCard, .userCard, .companyCard{
         width: 45%;
 
     }

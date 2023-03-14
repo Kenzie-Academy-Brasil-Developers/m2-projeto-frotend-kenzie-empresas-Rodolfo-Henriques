@@ -1,9 +1,15 @@
+import { toast } from "./toast.js";
+
 const {token} = getToken() || {}
 const baseUrl = "http://localhost:6278";
 const requestHeaders = {
   "Content-Type": "application/json",
   Authorization: `Bearer ${token}`,
 };
+
+const red = "#CE4646";
+const green = "#4BA036";
+
 
 export function getToken(){
   const token = JSON.parse(localStorage.getItem("@kenzieEmpresas:token"))
@@ -276,6 +282,24 @@ export async function updateUserAdmin(userAdminBody, id){
   }
 
   return updateUserAdmin;
+}
+
+export async function createCompany(createBody){
+  const createForm = await fetch(`${baseUrl}/companies`, {
+    method: "POST",
+    headers: requestHeaders,
+    body: JSON.stringify(createBody),
+  })
+
+  const createCompanyJson = await createForm.json()
+
+  if(!createForm.ok){
+    console.log(createCompanyJson.error)
+  } else {
+    console.log("Empresa Criada")
+  }
+
+  return createCompanyJson;
 }
 
 export async function departmentCreate(createBody){

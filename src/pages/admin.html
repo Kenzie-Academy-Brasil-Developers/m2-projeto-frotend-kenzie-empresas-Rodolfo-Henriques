@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/src/styles/reset.css">
     <link rel="stylesheet" href="/src/styles/globalStyles.css">
     <link rel="stylesheet" href="/src/styles/adminModal.css">
+    <link rel="stylesheet" href="/src/styles/toast.css">
     <link rel="stylesheet" href="/src/styles/admin.css">
 
     <title>Kenzie Empresas | Admin</title>
@@ -39,6 +40,25 @@
         <section class="userBox">
            
         </section>
+        <div class="companiesTitle">
+            <h2>Empresas Cadastradas</h2>
+            <select class="selectCompanySector" name="selectCompany" id="selectAdmin">
+                <option value="">Selecionar Setor</option>
+                <option value="Alimenticio">Alimentício</option>
+                <option value="Varejo">Varejo</option>
+                <option value="Textil">Textil</option>
+                <option value="Manufatura">Manufatura</option>
+                <option value="Aeroespacial">Aeroespacial</option>
+                <option value="Automotiva">Automotiva</option>
+                <option value="TI">TI</option>
+                <option value="Atacado">Atacado</option>
+            </select>
+            <button class="createCompany"><img src="/src/assets/icons/plusVector.svg" alt="">Criar</button>
+        </div>
+        <section class="companyBox">
+
+        </section>
+        <dialog class="createCompanyModal"></dialog>
         <dialog class="userEditModal"></dialog>
         <dialog class="userDeleteModal"></dialog>
         <dialog class="departViewModal"></dialog>
@@ -46,6 +66,9 @@
         <dialog class="departDeleteModal"></dialog>
         <dialog class="departCreateModal"></dialog>
     </main>
+
+    <!-- <div class="toast__container"></div> -->
+
     <script type="module" src="/src/scripts/admin.js"></script>
 </body>
 </html>
